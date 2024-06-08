@@ -1,7 +1,7 @@
 # How to run this project
 
 ### Create a .env file at the app root level for configurations
-    NODE_ENV = DEVELOPMENT
+    NODE_ENV = development
 
     APP_PORT = 8080
     ORIGIN = http://localhost:3000
