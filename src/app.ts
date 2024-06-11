@@ -3,9 +3,9 @@ import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
 import fastify from 'fastify';
-import { ORIGIN } from '@/config';
 import { errorHandler } from '@/plugins/error-handler';
 import { routes } from '@/routes';
+import { configuration } from './config';
 
 const app = fastify({
   logger: true,
@@ -15,7 +15,7 @@ app.register(helmet);
 app.register(cookie);
 
 app.register(cors, {
-  origin: ORIGIN,
+  origin: configuration.ORIGIN,
   credentials: true,
 });
 
