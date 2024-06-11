@@ -6,35 +6,35 @@ const title = z.string().min(1, 'Please enter a title');
 const body = z.string().min(1, 'Post body cannot be empty');
 
 export const createPostSchema = {
-    body: z.object({
-        title,
-        body,
-    }),
+  body: z.object({
+    title,
+    body,
+  }),
 };
 
 export const updatePostSchema = {
-    params: z.object({
-        postId,
-    }),
-    body: z.object({
-        body,
-    }),
+  params: z.object({
+    postId,
+  }),
+  body: z.object({
+    body,
+  }),
 };
 
 export const getPostSchema = {
-    params: z.object({
-        postId,
-    }),
+  params: z.object({
+    postId,
+  }),
 };
 
 export const deletePostSchema = {
-    params: z.object({
-        postId,
-    }),
+  params: z.object({
+    postId,
+  }),
 };
 
 export const getPostsByUserSchema = {
-    params: z.object({
-        userId,
-    }),
+  params: z.object({
+    userId,
+  }),
 };

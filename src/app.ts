@@ -3,30 +3,29 @@ import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
 import fastify from 'fastify';
-
 import { ORIGIN } from '@/config';
 import { errorHandler } from '@/plugins/error-handler';
 import { routes } from '@/routes';
 
 const app = fastify({
-    logger: true,
+  logger: true,
 });
 
 app.register(helmet);
 app.register(cookie);
 
 app.register(cors, {
-    origin: ORIGIN,
-    credentials: true,
+  origin: ORIGIN,
+  credentials: true,
 });
 
 app.register(rateLimit, {
-    max: 100,
-    timeWindow: '1 minute',
+  max: 100,
+  timeWindow: '1 minute',
 });
 
 app.register(routes, {
-    prefix: '/api',
+  prefix: '/api',
 });
 
 app.setErrorHandler(errorHandler);
